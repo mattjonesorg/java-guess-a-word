@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class Game {
 
     private int numberOfGuesses;
+    private int maxGuesses = 7;
     private String unguessedCharacters;
     private ChosenWord chosenWord;
     private PossibleWords wordsBank;
@@ -60,7 +61,11 @@ public class Game {
         // TODO: check if the user typed this letter before and give them a custom message
 
         // Handling the user guess
-        handleUserLetterGuess(guessedLetter);
+        if(! handleUserLetterGuess(guessedLetter)) {
+            //TODO:  Nicer error message, including telling users what the word was
+            System.out.println("Game Over");
+            return;
+        }
 
         // Display results of the guess
         displayUserGuessResults(guessedLetter);

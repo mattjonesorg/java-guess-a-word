@@ -64,4 +64,8 @@ public class ChosenWord {
         // return the string we have created.
         return formattedWord.toString();
     }
+
+    public String getCurrentWord() {
+        return this.word;
+    }
 }
