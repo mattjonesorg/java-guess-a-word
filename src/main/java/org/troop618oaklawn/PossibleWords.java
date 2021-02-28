@@ -1,3 +1,5 @@
+package org.troop618oaklawn;
+
 import java.util.Random;
 
 public class PossibleWords {

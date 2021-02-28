@@ -1,3 +1,5 @@
+package org.troop618oaklawn;
+
 public class ChosenWord {
 
     // The word to be guessed

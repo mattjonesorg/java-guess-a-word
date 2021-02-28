@@ -1,3 +1,5 @@
+package org.troop618oaklawn;
+
 import java.util.Scanner;
 
 public class Game {
@@ -9,8 +11,8 @@ public class Game {
     Scanner scanner;
 
     //Contstructor
-    public void Game(){
-        scanner = new Scanner(System.in);
+    public Game(Scanner scanner){
+        this.scanner = scanner;
         wordsBank = new PossibleWords();
     }
 
@@ -37,7 +39,7 @@ public class Game {
         removeOptionalCharGuess(guessedChar);
 
         // Running the guessing logic
-        chosenWord.charGuess(guessedChar);
+        chosenWord.guessCharacter(guessedChar);
     }
 
     private void removeOptionalCharGuess(char guessedChar){
@@ -51,11 +53,7 @@ public class Game {
         System.out.println("Enter a single character:");
         char guessedLetter = scanner.nextLine().charAt(0);
 
-        // Validating return value
-        if (guessedLetter == null){
-            exit();
-            return;
-        }
+        // TODO: see if the user typed this letter before and give them a custom message
 
         // Handling the user guess
         handleUserLetterGuess(guessedLetter);
@@ -75,12 +73,7 @@ public class Game {
             System.out.printf("Congratulations!  You guessed the word in %s guesses", numberOfGuesses);
        } else {
             inputUserLetterGuess();
-            button.setText("Continue guessing");
+            System.out.println("Guess again!");
         }
     }
-
-    // Closing the frame on forced exit
-    private void exit() {
-        frame.dispose();
-    }
-}
+} 
