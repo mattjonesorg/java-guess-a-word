@@ -30,16 +30,20 @@ public class Game {
     }
 
     // Handling a guess from the user, guessedChar is the guessed char
-    private void handleUserLetterGuess(char guessedChar){
+    private boolean handleUserLetterGuess(char guessedChar){
 
         // Increasing number of guesses
         numberOfGuesses++;
+
+        // TODO:  return false if the number of guesses is more than allowed.
 
         // Removing the guessed letter, so that the user can't guess it again
         removeOptionalCharGuess(guessedChar);
 
         // Running the guessing logic
         chosenWord.guessCharacter(guessedChar);
+
+        return true;
     }
 
     private void removeOptionalCharGuess(char guessedChar){
@@ -53,7 +57,7 @@ public class Game {
         System.out.println("Enter a single character:");
         char guessedLetter = scanner.nextLine().charAt(0);
 
-        // TODO: see if the user typed this letter before and give them a custom message
+        // TODO: check if the user typed this letter before and give them a custom message
 
         // Handling the user guess
         handleUserLetterGuess(guessedLetter);
@@ -72,8 +76,8 @@ public class Game {
         if (chosenWord.isEntireWordGuessed()){
             System.out.printf("Congratulations!  You guessed the word in %s guesses", numberOfGuesses);
        } else {
-            inputUserLetterGuess();
             System.out.println("Guess again!");
+            inputUserLetterGuess();
         }
     }
 } 
