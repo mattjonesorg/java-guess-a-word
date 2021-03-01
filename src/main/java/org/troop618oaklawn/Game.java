@@ -75,7 +75,7 @@ public class Game {
     private void displayUserGuessResults(char guessedLetter){
         // Displaying result
 
-        System.out.printf("After you guessed '%s':  %s%s\n", guessedLetter, chosenWord);
+        System.out.printf("After you guessed '%s':  %s%s\n", guessedLetter, chosenWord,chosenWord);
 
         // Checking if the word is completely exposed
         if (chosenWord.isEntireWordGuessed()){
